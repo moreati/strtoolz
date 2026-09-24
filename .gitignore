@@ -1,0 +1,13 @@
+# SPDX-FileCopyrightText: 2026 strtoolz authors <https://github.com/moreati/strtoolz>
+# SPDX-License-Identifier: MIT
+
+__pycache__/
+.hypothesis/
+.mypy_cache/
+.pytest_cache/
+.venv/
+*.egg-info
+*.py[oc]
+build/
+dist/
+wheels/

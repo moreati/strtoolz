@@ -1,0 +1,38 @@
+# SPDX-FileCopyrightText: 2026 strtoolz authors <https://github.com/moreati/strtoolz>
+# SPDX-License-Identifier: MIT
+
+[build-system]
+build-backend = "uv_build"
+requires = [
+    "uv_build>=0.12.0,<0.13.0",
+]
+
+[project]
+name = "strtoolz"
+version = "0.0.1"
+description = "Extra string search and manipulation functions"
+readme = "README.md"
+license = "MIT"
+authors = [
+    {name = "Alex Willmer", email = "alex@moreati.org.uk"},
+]
+requires-python = ">=3.10"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Text Processing",
+]
+
+[project.optional-dependencies]
+test = [
+    "hypothesis>=6.15.0",
+    "pytest>=6.2.5",
+]
+
+[project.urls]
+Homepage = "https://github.com/moreati/strtoolz"
+Repository = "https://github.com/moreati/strtoolz"
+Tracker = "https://github.com/moreati/strtoolz/issues"
+Changelog = "https://github.com/moreati/strtoolz/blob/main/CHANGELOG.md"
