@@ -27,6 +27,11 @@ from hypothesis import assume, given, strategies as st
 import strtoolz
 
 
+def find_all_re(s, sub, start, end):
+    pattern = re.compile(re.escape(sub))
+    return [m.start() for m in pattern.finditer(s[start:end])]
+
+
 @given(
     st.text(),
     st.text(),
@@ -39,10 +44,8 @@ def test_re_findall_equivalence(s, sub, start, end):
     behaviour differs.
     """
     assume(start is None or start <= len(s))
-
-    pattern = re.compile(re.escape(sub))
-    indexes = [m.start() for m in pattern.finditer(s[start:end])]
-    assert indexes == strtoolz.find_all(s, sub, start, end)
+    expected = find_all_re(s, sub, start, end)
+    assert strtoolz.find_all(s, sub, start=start, end=end) == expected
 
 
 def test_empty_sub():
