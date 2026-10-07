@@ -5,6 +5,7 @@ Extra string search and manipulation functions for Python.
 - `find_all()`
 - `find_iter()`
 
+
 ## Usage
 
 ```python
@@ -12,6 +13,7 @@ Extra string search and manipulation functions for Python.
 >>> strtoolz.find_all("The rain in Spain falls mainly on the plain", 'ain')
 [5, 14, 25, 40]
 ```
+
 
 ## Installtion
 
@@ -24,6 +26,7 @@ or
 ```sh
 pip install strtoolz
 ```
+
 
 ## Licence
 
