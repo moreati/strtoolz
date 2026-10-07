@@ -42,3 +42,10 @@ Homepage = "https://github.com/moreati/strtoolz"
 Repository = "https://github.com/moreati/strtoolz"
 Tracker = "https://github.com/moreati/strtoolz/issues"
 Changelog = "https://github.com/moreati/strtoolz/blob/main/CHANGELOG.md"
+
+[tool.uv.build-backend]
+source-include = [
+    "CHANGELOG.md",
+    "noxfile.py",
+    "tests/*.py",
+]
