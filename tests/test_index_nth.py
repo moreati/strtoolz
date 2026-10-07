@@ -31,7 +31,8 @@ def test_str_index_equivalence(s, sub, start, end):
             strtoolz.index_nth(s, sub, 0, start, end)
         assert actual_excinfo.type is type(expected_exc)
         assert len(actual_excinfo.value.args) == len(expected_exc.args) == 1
-        assert expected_exc.args[0] in actual_excinfo.value.args[0]
+        assert 'substring not found' in expected_exc.args[0]
+        assert 'nth substring not found' == actual_excinfo.value.args[0]
         assert expected_idx is sentinel
 
     else:

@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 
 - `find_nth()` function
 - `index_nth()` function
+- [Nox](https://nox.thea.codes) test automation
 
 ### Changed
 
