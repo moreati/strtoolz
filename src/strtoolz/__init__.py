@@ -13,7 +13,7 @@ __all__ = [
     'find_iter',
 ]
 
-def find_all(s:Str, sub:Str, start:Bound=None, end:Bound=None) -> list[int]:
+def find_all(s:Str, sub:Str, /, start:Bound=None, end:Bound=None) -> list[int]:
     """
     Return a list of all indexes in s where substring sub is found, such that
     none overlap and all substrings are contained within s[start:end].
@@ -23,7 +23,7 @@ def find_all(s:Str, sub:Str, start:Bound=None, end:Bound=None) -> list[int]:
     return list(find_iter(s, sub, start, end))
 
 
-def find_iter(s:Str, sub:Str, start:Bound=None, end:Bound=None) -> Iterator[int]:
+def find_iter(s:Str, sub:Str, /, start:Bound=None, end:Bound=None) -> Iterator[int]:
     """
     Yield all indexes in s where substring sub is found, such that
     none overlap and all substrings are contained within s[start:end].

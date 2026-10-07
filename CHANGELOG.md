@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+### Changed
+
+- `find_all()` and `find_iter()`: string arguments are now positional only
+
+
 ## 0.0.1 - 2026-09-25
 
 ### Added
