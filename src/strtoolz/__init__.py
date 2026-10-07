@@ -31,7 +31,6 @@ def find_iter(s:Str, sub:Str, /, start:Bound=None, end:Bound=None) -> Iterator[i
     Optional arguments start and end are interpreted as in slice notation.
     """
     stride = max(1, len(sub))
-    len_s = len(s)
-    while 0 <= (start := s.find(sub, start, end)) <= len_s:
+    while 0 <= (start := s.find(sub, start, end)):
         yield start
         start += stride
