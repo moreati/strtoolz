@@ -15,20 +15,20 @@ __all__ = [
 
 def find_all(s:Str, sub:Str, /, start:Bound=None, end:Bound=None) -> list[int]:
     """
-    Return a list of all indexes in s where substring sub is found, such that
-    none overlap and all substrings are contained within s[start:end].
+    Return a list of all indexes in string s where substring sub is found,
+    with no overlaps and all substrings contained within s[start:end].
 
-    Optional arguments start and end are interpreted as in slice.
+    Optional arguments start and end are interpreted as in slice notation.
     """
     return list(find_iter(s, sub, start, end))
 
 
 def find_iter(s:Str, sub:Str, /, start:Bound=None, end:Bound=None) -> Iterator[int]:
     """
-    Yield all indexes in s where substring sub is found, such that
-    none overlap and all substrings are contained within s[start:end].
+    Yield all indexes in string s where substring sub is found,
+    with no overlaps and all substrings contained within s[start:end].
 
-    Optional arguments start and end are interpreted as in slice.
+    Optional arguments start and end are interpreted as in slice notation.
     """
     stride = max(1, len(sub))
     len_s = len(s)
