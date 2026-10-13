@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+### Added
+
+- `replace_counted()` function
+
+### Fixed
+
+- `tests.test_find_all.find_all_re()` test oracle when `start > 0`
+
+
 ## 0.0.2 - 2026-10-07
 
 ### Added

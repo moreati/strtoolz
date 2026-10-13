@@ -29,7 +29,8 @@ import strtoolz
 
 def find_all_re(s, sub, start, end):
     pattern = re.compile(re.escape(sub))
-    return [m.start() for m in pattern.finditer(s[start:end])]
+    offset, _, _ = slice(start, end).indices(len(s))
+    return [m.start() + offset for m in pattern.finditer(s[start:end])]
 
 
 @given(
