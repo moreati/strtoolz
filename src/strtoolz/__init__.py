@@ -17,6 +17,7 @@ __all__ = [
     'find_nth',
     'index_nth',
     'replace_counted',
+    'replace_exactly_count',
 ]
 
 def find_all(s:Str, sub:Str, /, start:Bound=None, end:Bound=None) -> list[int]:
@@ -127,3 +128,25 @@ def replace_counted(s:Str, old:Str, new:Str, /, count:SupportsIndex=-1) -> tuple
 
     parts.append(s[lwm:])
     return (s[0:0].join(parts), replacements_count)
+
+
+def replace_exactly(s:Str, old:Str, new:Str, /, count:SupportsIndex) -> Str:
+    """
+    Like s.replace() but replaces *exactly* count occurences of old with new.
+
+      count
+        Exact number of occurrences to replace, count < 0 raises ValueError.
+
+    If fewer than count occurences of old are found in s, raise ValueError.
+    """
+    count = operator.index(count)
+    if count < 0:
+        raise ValueError(f'count must be >= 0, not {count}')
+
+    new_s, replacements_count = replace_counted(s, old, new, count)
+    if replacements_count < count:
+        raise ValueError(
+            f'Only {replacements_count} occurences could be replaced, required '
+            f'{count}',
+        )
+    return new_s

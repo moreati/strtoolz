@@ -8,6 +8,7 @@ objects in Python.
 - `find_nth()`
 - `index_nth()`
 - `replace_counted()`
+- `replace_exactly()`
 
 
 ## Usage
@@ -20,6 +21,10 @@ objects in Python.
 25
 >>> strtoolz.replace_counted('The rain in Spain falls mainly on the plain', 'ain', 'AIN')
 ('The rAIN in SpAIN falls mAINly on the plAIN', 4)
+>>> strtoolz.replace_exactly('The rain in Spain falls mainly on the plain', 'ain', 'AIN', 10)
+Traceback (most recent call last):
+...
+ValueError: Only 4 occurences could be replaced, required 10
 ```
 
 
