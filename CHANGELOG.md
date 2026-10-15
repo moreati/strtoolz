@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+## 0.0.2 - 2026-10-15
+
 ### Added
 
 - `replace_counted()` function
