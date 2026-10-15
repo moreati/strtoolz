@@ -54,3 +54,28 @@ pip install strtoolz
 ## Licence
 
 MIT
+
+
+## See also
+
+### stdlib
+
+`re` was inspiration for some of the functions in `strtoolz`, including
+`strtoolz.find_all()`/`strtoolz.find_iter()`.
+
+To find static strings with `re` your must escape any metachars
+
+```py
+>>> pattern = re.compile(re.escape('an.'))
+>>> [m.start() for m in pattern.finditer('A man. A plan. A canal. Panama!')]
+[3, 11]
+```
+
+Combine `re` with `itertools` to recreate `strtoolz.find_nth()`
+
+```py
+>>> pattern = re.compile(re.escape('an.'))
+>>> matches = pattern.finditer('A man. A plan. A canal. Panama!')
+>>> next(itertools.islice(matches, 1, None), -1).start()
+11
+```
