@@ -17,7 +17,7 @@ __all__ = [
     'find_nth',
     'index_nth',
     'replace_counted',
-    'replace_exactly_count',
+    'replace_exactly',
 ]
 
 def find_all(s:Str, sub:Str, /, start:Bound=None, end:Bound=None) -> list[int]:
