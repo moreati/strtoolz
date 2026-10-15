@@ -9,6 +9,11 @@ All notable changes to this project will be documented in this file.
 - `replace_counted()` function
 - `replace_exactly()` function
 
+### Changed
+
+- `find_nth()` and `index_nth()` now take any `n` that supports `__index__()`
+
+
 ### Fixed
 
 - `tests.test_find_all.find_all_re()` test oracle when `start > 0`

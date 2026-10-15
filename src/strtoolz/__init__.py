@@ -42,7 +42,7 @@ def find_iter(s:Str, sub:Str, /, start:Bound=None, end:Bound=None) -> Iterator[i
         start += stride
 
 
-def find_nth(s:Str, sub:Str, /, n:int, start:Bound=None, end:Bound=None) -> int:
+def find_nth(s:Str, sub:Str, /, n:SupportsIndex, start:Bound=None, end:Bound=None) -> int:
     """
     Return the index of the nth non-overlapping occurrence of substring sub
     within s[start:end], otherwise -1.
@@ -50,13 +50,14 @@ def find_nth(s:Str, sub:Str, /, n:int, start:Bound=None, end:Bound=None) -> int:
     n is 0-based, as though indexing into the list returned by find_all().
     Optional arguments start and end are interpreted as in slice notation.
     """
+    n = operator.index(n)
     if not 0 <= n <= sys.maxsize:
         raise ValueError('n must be an integer 0 <= n <= sys.maxsize, got: {n}')
     it = find_iter(s, sub, start=start, end=end)
     return next(itertools.islice(it, n, None), -1)
 
 
-def index_nth(s:Str, sub:Str, /, n:int, start:Bound=None, end:Bound=None) -> int:
+def index_nth(s:Str, sub:Str, /, n:SupportsIndex, start:Bound=None, end:Bound=None) -> int:
     """
     Like find_nth(), but raise ValueError if the nth occurrence is not found.
     """
