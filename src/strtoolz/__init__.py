@@ -17,6 +17,7 @@ __all__ = [
     'index_nth',
     'replace_counted',
     'replace_exactly',
+    'replace_nth',
 ]
 
 def find_all(s:Str, sub:Str, /, start:Bound=None, end:Bound=None) -> list[int]:
@@ -157,3 +158,18 @@ def replace_exactly(s:Str, old:Str, new:Str, /, count:SupportsIndex) -> Str:
             f'{count}',
         )
     return new_s
+
+
+def replace_nth(s:Str, old:Str, new:Str, /, n:SupportsIndex) -> Str:
+    """
+    Return a copy of s with the nth non-overlapping occurrence of substring
+    old replaced by new, otherwise raise ValueError.
+
+      n
+        Which occurrence of old to replace, 0-based.
+    """
+    idx = find_nth(s, old, n)
+    if idx < 0:
+        raise ValueError('nth occurrence of old substring not found')
+    parts = [s[:idx], new, s[idx+len(old):]]
+    return s[0:0].join(parts)

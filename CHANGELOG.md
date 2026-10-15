@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 
 - `replace_counted()` function
 - `replace_exactly()` function
+- `replace_nth()` function
 
 ### Changed
 
