@@ -47,7 +47,9 @@ def find_nth(s:Str, sub:Str, /, n:SupportsIndex, start:Bound=None, end:Bound=Non
     Return the index of the nth non-overlapping occurrence of substring sub
     within s[start:end], otherwise -1.
 
-    n is 0-based, as though indexing into the list returned by find_all().
+      n
+        Which occurrence of sub to search for, 0-based.
+
     Optional arguments start and end are interpreted as in slice notation.
     """
     n = operator.index(n)
@@ -60,6 +62,11 @@ def find_nth(s:Str, sub:Str, /, n:SupportsIndex, start:Bound=None, end:Bound=Non
 def index_nth(s:Str, sub:Str, /, n:SupportsIndex, start:Bound=None, end:Bound=None) -> int:
     """
     Like find_nth(), but raise ValueError if the nth occurrence is not found.
+
+      n
+        Which occurrence of sub to search for, 0-based.
+
+    Optional arguments start and end are interpreted as in slice notation.
     """
     idx = find_nth(s, sub, n=n, start=start, end=end)
     if idx < 0:
