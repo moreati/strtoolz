@@ -1,8 +1,6 @@
 # SPDX-FileCopyrightText: 2026 strtoolz authors <https://github.com/moreati/strtoolz>
 # SPDX-License-Identifier: MIT
 
-import re
-
 from hypothesis import given, strategies as st
 import pytest
 

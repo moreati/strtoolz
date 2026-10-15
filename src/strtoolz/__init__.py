@@ -5,7 +5,6 @@ import itertools
 import operator
 import sys
 from collections.abc import Iterator
-from numbers import Integral
 from typing import SupportsIndex, TypeAlias, TypeVar
 
 Bound: TypeAlias = SupportsIndex | None

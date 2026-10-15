@@ -14,6 +14,7 @@ All notable changes to this project will be documented in this file.
 - `tests.test_find_all.find_all_re()` test oracle when `start > 0`
 - `replace_exactly()` export in `__all__`
 - Spelling mistakes (e.g. occurrence)
+- Removed unused imports
 
 
 ## 0.0.2 - 2026-10-07
