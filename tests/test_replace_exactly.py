@@ -19,7 +19,7 @@ def replace_exactly_oracle(s, old, new, count):
 
     if found_count < count:
         raise ValueError(
-            f'Only {found_count} occurences could be replaced, required {count}',
+            f'Only {found_count} occurrences could be replaced, required {count}',
         )
     return new_s
 

@@ -45,7 +45,7 @@ def find_iter(s:Str, sub:Str, /, start:Bound=None, end:Bound=None) -> Iterator[i
 
 def find_nth(s:Str, sub:Str, /, n:int, start:Bound=None, end:Bound=None) -> int:
     """
-    Return the index of the nth non-overlapping occurence of substring sub
+    Return the index of the nth non-overlapping occurrence of substring sub
     within s[start:end], otherwise -1.
 
     n is 0-based, as though indexing into the list returned by find_all().
@@ -59,7 +59,7 @@ def find_nth(s:Str, sub:Str, /, n:int, start:Bound=None, end:Bound=None) -> int:
 
 def index_nth(s:Str, sub:Str, /, n:int, start:Bound=None, end:Bound=None) -> int:
     """
-    Like find_nth(), but raise ValueError when the nth substring is not found.
+    Like find_nth(), but raise ValueError if the nth occurrence is not found.
     """
     idx = find_nth(s, sub, n=n, start=start, end=end)
     if idx < 0:
@@ -132,12 +132,12 @@ def replace_counted(s:Str, old:Str, new:Str, /, count:SupportsIndex=-1) -> tuple
 
 def replace_exactly(s:Str, old:Str, new:Str, /, count:SupportsIndex) -> Str:
     """
-    Like s.replace() but replaces *exactly* count occurences of old with new.
+    Like s.replace() but replaces *exactly* count occurrences of old with new.
 
       count
         Exact number of occurrences to replace, count < 0 raises ValueError.
 
-    If fewer than count occurences of old are found in s, raise ValueError.
+    If fewer than count occurrences of old are found in s, raise ValueError.
     """
     count = operator.index(count)
     if count < 0:
@@ -146,7 +146,7 @@ def replace_exactly(s:Str, old:Str, new:Str, /, count:SupportsIndex) -> Str:
     new_s, replacements_count = replace_counted(s, old, new, count)
     if replacements_count < count:
         raise ValueError(
-            f'Only {replacements_count} occurences could be replaced, required '
+            f'Only {replacements_count} occurrences could be replaced, required '
             f'{count}',
         )
     return new_s
