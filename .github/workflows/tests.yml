@@ -1,0 +1,41 @@
+# SPDX-FileCopyrightText: 2026 strtoolz authors <https://github.com/moreati/strtoolz>
+# SPDX-License-Identifier: MIT
+
+name: tests
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - macos-latest
+          - ubuntu-latest
+          - windows-latest
+        # Also check/update noxfile.py, pyproject.toml
+        python-version:
+          - "3.10"
+          - "3.15"
+          - "pypy3.11"  # TODO Upgrade to pypy3.12 once Hypothesis wheels available
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Install Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v10.3.0
+
+      - name: Run tests
+        run: |
+          uv tool run nox --sessions "tests-${{ matrix.python-version }}"
