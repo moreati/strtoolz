@@ -7,6 +7,7 @@ objects in Python.
 - `find_iter()`
 - `find_nth()`
 - `index_nth()`
+- `partition_nth()`
 - `replace_counted()`
 - `replace_exactly()`
 - `replace_nth()`
@@ -37,6 +38,12 @@ ValueError: Only 4 occurences could be replaced, required 10
 'The rain in Spain falls mainly on the plAIN'
 ```
 
+### Splitting
+
+```python
+>>> strtoolz.partition_nth('The rain in Spain falls mainly on the plain', 'ain', n=2)
+('The rain in Spain falls m', 'ain', 'ly on the plain')
+```
 
 ## Installtion
 
