@@ -15,6 +15,7 @@ __all__ = [
     'find_iter',
     'find_nth',
     'index_nth',
+    'partition_nth',
     'replace_counted',
     'replace_exactly',
     'replace_nth',
@@ -73,6 +74,27 @@ def index_nth(s:Str, sub:Str, /, n:SupportsIndex, start:Bound=None, end:Bound=No
     if idx < 0:
         raise ValueError('nth substring not found')
     return idx
+
+
+def partition_nth(s:Str, sep:Str, /, n:SupportsIndex) -> tuple[Str, Str, Str]:
+    """
+    Split string s at the nth non-overlapping occurrence of sep, and return a
+    3-tuple containing (part_before, sep, part_after).
+
+      n
+        Which occurrence of sub to search for, 0-based.
+
+    If an nth occurrence is not found, return a 3-tuple
+    (s, empty_string, empty_string).
+    """
+    if len(sep) == 0:
+        raise ValueError('empty separator')
+
+    idx = find_nth(s, sep, n=n)
+    if idx < 0:
+        empty_string = s[0:0]
+        return (s, empty_string, empty_string)
+    return (s[:idx], sep, s[idx+len(sep):])
 
 
 def replace_counted(s:Str, old:Str, new:Str, /, count:SupportsIndex=-1) -> tuple[Str, int]:
